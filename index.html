@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Laugh Track Button</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #111;
+      font-family: Arial, sans-serif;
+    }
+    #laugh-btn {
+      padding: 20px 40px;
+      font-size: 1.5rem;
+      background: crimson;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+      transition: 0.2s;
+    }
+    #laugh-btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <button id="laugh-btn">Play Laugh Track 😆</button>
+  <iframe id="laugh-frame" width="1" height="1"
+    src="https://www.myinstants.com/instant/sitcom-laugh/embed/"
+    frameborder="0" scrolling="no" style="visibility:hidden;"></iframe>
+  <script>
+    document.getElementById('laugh-btn').addEventListener('click', () => {
+      const iframe = document.getElementById('laugh-frame');
+      iframe.src = iframe.src; // reload to replay sound
+    });
+  </script>
+</body>
+</html>
