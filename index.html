@@ -30,13 +30,19 @@
 </head>
 <body>
   <button id="laugh-btn">Play Laugh Track 😆</button>
-  <iframe id="laugh-frame" width="1" height="1"
-    src="<iframe width="110" height="200" src="https://www.myinstants.com/media/sounds/sitcom-laugh.mp3"
-    frameborder="0" scrolling="no" style="visibility:hidden;"></iframe>
+
+  <!-- Local MP3 -->
+  <audio id="laugh-audio" preload="auto">
+    <source src="sitcom-laugh.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
-    document.getElementById('laugh-btn').addEventListener('click', () => {
-      const iframe = document.getElementById('laugh-frame');
-      iframe.src = iframe.src; // reload to replay sound
+    const laughAudio = document.getElementById("laugh-audio");
+    const button = document.getElementById("laugh-btn");
+
+    button.addEventListener("click", () => {
+      laughAudio.currentTime = 0; // rewind to start
+      laughAudio.play();           // play sound
     });
   </script>
 </body>
